@@ -4,7 +4,7 @@ import { reset as resetForm, initialize } from 'redux-form'
 import { showTabs, selectTab } from '../common/tab/tabActions'
 
 const BASE_URL = 'http://localhost:3003/api'
-const INITIAL_VALUES = {}
+const INITIAL_VALUES = {credits: [{}], debts: [{}]}
 
 export function getList() {
     const request = axios.get(`${BASE_URL}/billingCycles`)
@@ -15,8 +15,17 @@ export function getList() {
 }
 
 export function create(values) {
+    return submit(values, 'post')
+}
+
+export function update(values){
+    return submit(values, 'put')
+}
+
+function submit(values, method) {
     return dispatch => {
-        axios.post(`${BASE_URL}/billingCycles`, values)
+        const id = values._id ? values._id : ''
+        axios[method](`${BASE_URL}/billingCycles/${id}`, values)
             .then(resp => {
                 toastr.success('Sucesso', 'Operação Realizada com Sucesso.')
                 dispatch(init())
@@ -34,6 +43,19 @@ export function showUpdate(billingCycle) {
         selectTab('tabUpdate'),
         initialize('billingCycleForm', billingCycle)
     ]
+}
+
+//Refatorar depois pois é parecido com o show update
+export function showDelete(billingCycle) {
+    return [
+        showTabs('tabDelete'),
+        selectTab('tabDelete'),
+        initialize('billingCycleForm', billingCycle)
+    ]
+}
+
+export function remove(values) {
+    return submit(values, 'delete')
 }
 
 export function init() {
