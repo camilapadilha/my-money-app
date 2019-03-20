@@ -7,6 +7,7 @@ const creditSchema = new mongoose.Schema({
     value: { type: Number, min: 0, required: true}
 })
 
+//esquema relacionado ao débito
 const debtSchema = new mongoose.Schema({
     name: { type: String, required: true },
     value: { type: Number, min: 0, required: [true, 'Informe o valor do débito!'] },
@@ -14,6 +15,7 @@ const debtSchema = new mongoose.Schema({
         enum: ['PAGO', 'PENDENTE', 'AGENDADO' ]}
 })
 
+//esquema relacionado ao ciclo de pagamento
 const billingCycleSchema = new mongoose.Schema({
     name: { type: String, required: true },
     month: { type: Number, min: 1, max: 2100, required: true },
