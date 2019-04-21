@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { getList } from './clientActions'
+import { getList, showUpdate } from './clientActions'
 
 class ClientList extends Component {
     componentWillMount() {
@@ -15,6 +15,12 @@ class ClientList extends Component {
                 <td>{ c.name }</td>
                 <td>{ c.cpf }</td>
                 <td>{ c.rg }</td>
+                <td>
+                    <button className='btn btn-warning' onClick={() =>
+                    this.props.showUpdate(c)}>
+                    <i className='fa fa-pencil'></i>
+                    </button>
+                </td>
             </tr>
         ))
     }
@@ -39,5 +45,5 @@ class ClientList extends Component {
     }
 }
 const mapStateToProps = state => ({ list: state.client.list })
-const mapDispatchToProps = dispatch => bindActionCreators({ getList }, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({ getList, showUpdate }, dispatch)
 export default connect(mapStateToProps, mapDispatchToProps)(ClientList)
