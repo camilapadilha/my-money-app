@@ -9,7 +9,7 @@ import TabsHeader from '../common/tab/tabsHeader'
 import TabsContent from '../common/tab/tabsContent'
 import TabHeader from '../common/tab/tabHeader'
 import TabContent from '../common/tab/tabContent'
-import { init, create, update } from './clientActions'
+import { init, create, update, remove } from './clientActions'
 
 import List from './clientList'
 import Form from './clientForm'
@@ -30,7 +30,7 @@ class Client extends Component {
                                 <TabHeader label='Listar' icon='bars' target='tabList'/>
                                 <TabHeader label='Incluir' icon='plus' target='tabCreate'/>
                                 <TabHeader label='Alterar' icon='pencil' target='tabUpdate'/>
-                                {/* <TabHeader label='Excluir' icon='trash-o' target='tabDelete'/>  */}
+                                <TabHeader label='Excluir' icon='trash-o' target='tabDelete'/> 
                             </TabsHeader>
                             <TabsContent>
                                 <TabContent id='tabList'>
@@ -44,10 +44,10 @@ class Client extends Component {
                                     <Form onSubmit={this.props.update}
                                     submitLabel='Alterar' submitClass='info' />
                                 </TabContent>
-                                {/* <tabContent id='tabDelete'>
-                                    <Form onSubmit={this.props.delete} 
+                                <TabContent id='tabDelete'>
+                                    <Form onSubmit={this.props.remove} 
                                     submitLabel='Excluir' submitClass='danger' />
-                                </tabContent> */}
+                                </TabContent>
                             </TabsContent>
                         </Tabs>
                     </Content>
@@ -57,5 +57,5 @@ class Client extends Component {
     
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators({ init, create, update }, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({ init, create, update, remove }, dispatch)
 export default connect(null, mapDispatchToProps)(Client)

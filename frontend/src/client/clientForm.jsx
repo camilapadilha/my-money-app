@@ -24,6 +24,8 @@ class ClientForm extends Component {
                     <button type='submit' className={`btn btn-${this.props.submitClass}`}>
                         {this.props.submitLabel}
                     </button>
+                    <button type='button' className='btn btn-default'
+                    onCLick={this.props.init}>Cancelar</button>
                 </div>
             </form>
 

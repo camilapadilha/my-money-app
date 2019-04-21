@@ -30,6 +30,10 @@ export function update(values) {
     return submit(values, 'put')
 }
 
+export function remove(values) {
+    return submit(values, 'delete')
+}
+
 function submit(values, method) {
     return dispatch => {
         const id = values._id ? values._id : ''
@@ -42,6 +46,14 @@ function submit(values, method) {
                 e.response.data.errors.forEach(error => toastr.error('Error', error))
             })
     }
+}
+
+export function showDelete(client) {
+    return [
+        showTabs('tabDelete'),
+        selectTab('tabDelete'),
+        initialize('clientForm', client)
+    ]
 }
 
 export function showUpdate(client) {
