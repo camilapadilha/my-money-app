@@ -14,7 +14,7 @@ class ClientForm extends Component {
             <form role='form' onSubmit={handleSubmit}>
                 <div className='box-body'>
                     <div>
-                        <label>Tipo Pessoa</label>
+                        <label>Tipo de Cliente</label>
                         <div>
                             <label><Field name="tipoPessoa" component="input" 
                             type="radio" value="fisica"/> Física</label>

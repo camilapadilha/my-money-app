@@ -12,4 +12,7 @@ module.exports = function(server) {
 
     const Client = require('../api/client/clientService')
     Client.register(router, '/clients')
+
+    const Product = require('../api/product/productService')
+    Product.register(router, '/products')
 }
