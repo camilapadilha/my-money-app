@@ -11,6 +11,8 @@ export default props => (
                 label='Ciclos de Pagamentos' icon='usd' />
             <MenuItem path='#clients'
                 label='Clientes' icon='usd' />
+            <MenuItem path='#products'
+                label='Produtos' icon='usd' />
         </MenuTree>
     </ul>
 )
