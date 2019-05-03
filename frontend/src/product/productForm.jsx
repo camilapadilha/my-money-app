@@ -38,5 +38,5 @@ class ProductForm extends Component {
 }
 
 ProductForm = reduxForm({ form: 'productForm', destroyOnUnmount: false}) (ProductForm)
-const mapDispatchToProps = dispatch => bindActionCreators({init}, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({ init }, dispatch)
 export default connect(null, mapDispatchToProps) (ProductForm)

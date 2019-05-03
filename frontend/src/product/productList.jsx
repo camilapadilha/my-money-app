@@ -36,8 +36,8 @@ class ProductList extends Component {
                     <thead>
                         <tr>
                             <th>Nome</th>
-                            <th>Valor de Compra</th>
-                            <th>Valor de Venda</th>
+                            <th>Preço de Compra</th>
+                            <th>Preço de Venda</th>
                             <th>Estoque</th>
                             <th>Ações</th>
                         </tr>
