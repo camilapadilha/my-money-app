@@ -14,5 +14,9 @@ export default props => (
             <MenuItem path='#products'
                 label='Produtos' icon='usd' />
         </MenuTree>
+        <MenuTree label='Movimento' icon='edit'>
+            <MenuItem path='#vendas'
+                label='Vendas' icon='usd' />
+        </MenuTree>
     </ul>
 )

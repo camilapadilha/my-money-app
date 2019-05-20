@@ -7,16 +7,32 @@ const Schema = mongoose.Schema
 
 
 const itensVendaSchema = new mongoose.Schema({
-    product: [{type: Schema.Types.ObjectId, ref: 'Product'}],
-    valor: {type: Number},
-    quantidade: {type: Number}
+    product: [{
+        type: Schema.Types.ObjectId, 
+        ref: Product
+    }],
+    valor: {
+        type: Number
+    },
+    quantidade: {
+        type: Number
+    }
 })
 
-const vendaSchema = new mongoose.Schema({
-    data: {type: Date, default: Date.now},
-    client: [{type: Schema.Types.ObjectId, ref: 'Client'}],
-    total: {type: Number},
+const venda = new mongoose.Schema({
+    data: {
+        type: Date,
+        default: Date.now
+        
+    },
+    client: [{
+        type: Schema.Types.ObjectId, 
+        ref: Client
+    }],
+    total: {
+        type: Number
+    },
     itensVenda: [itensVendaSchema]
 })
 
-module.exports = restful.model('venda', vendaSchema)
+module.exports = restful.model('Venda', venda)
